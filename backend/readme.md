@@ -2,16 +2,22 @@ This is the backend API for registering user, login and then resetting password 
 
 These are the end points-
 
-get "https://urlshortner-react.herokuapp.com/" - gives welcome message
+get "https://student-task1.herokuapp.com/" - gives welcome message
 
-post "https://urlshortner-react.herokuapp.com/register" - allows us to register user (create temporary account)
+post "https://student-task1.herokuapp.com/forgotPass"- allows student with existing account to enter email (create temporary account)
 
-post "https://urlshortner-react.herokuapp.com/activate" - allows us to activate the registered user
+post "https://student-task1.herokuapp.com/resetPass" - allows student to reset password
 
-post "https://urlshortner-react.herokuapp.com/login" - allows us to login the user
+post "https://student-task1.herokuapp.com/register"- allows student to create a new account
 
-post "https://urlshortner-react.herokuapp.com/forgotPass" - allows us to initiate start of password reset process, we send email through this end point
+post "https://student-task1.herokuapp.com/login"- allows student to login
 
-put "https://urlshortner-react.herokuapp.com/resetPass" - allows us to send email, new password and otp to our database and reset password
+post "https://student-task1.herokuapp.com/adminLogin" - allows admin to login
 
-get "https://urlshortner-react.herokuapp.com/private" - user will be able to access this route only if he is logged in
+get "https://student-task1.herokuapp.com/students" - allows admin to get students detail , admin must login to get the details
+
+post "https://student-task1.herokuapp.com/taskSubmissions" - allows student to post solution for the task
+
+get "https://student-task1.herokuapp.com/taskSubmissions" - allows admin to get details about task submissions
+
+put "https://student-task1.herokuapp.com/taskSubmissions/:id" - allows admin to submit grade about a particular task by particular student
