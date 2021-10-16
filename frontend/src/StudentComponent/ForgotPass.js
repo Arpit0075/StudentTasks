@@ -31,11 +31,11 @@ function ForgotPass() {
   const handleSubmit1 = async (e) => {
     e.preventDefault();
 
-    const localUrl = "http://localhost:3001/forgotPass";
+    //const localUrl = "http://localhost:3001/forgotPass";
 
-    //const deployedUrl = "https://urlshortner-react.herokuapp.com/forgotPass";
+    const deployedUrl = "https://student-task1.herokuapp.com/forgotPass";
 
-    const response = await fetch(localUrl, {
+    const response = await fetch(deployedUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -66,9 +66,9 @@ function ForgotPass() {
     //console.log(res);
     e.preventDefault();
 
-    const localUrl = "http://localhost:3001/resetPass";
+    const deployedUrl = "https://student-task1.herokuapp.com/resetPass";
 
-    const response = await fetch(localUrl, {
+    const response = await fetch(deployedUrl, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

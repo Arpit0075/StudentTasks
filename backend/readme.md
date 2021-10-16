@@ -16,6 +16,10 @@ post "https://student-task1.herokuapp.com/adminLogin" - allows admin to login
 
 get "https://student-task1.herokuapp.com/students" - allows admin to get students detail , admin must login to get the details
 
+get "https://student-task1.herokuapp.com/tasks" - allows students to view tasks
+
+post "https://student-task1.herokuapp.com/tasks" - allows admin to post task
+
 post "https://student-task1.herokuapp.com/taskSubmissions" - allows student to post solution for the task
 
 get "https://student-task1.herokuapp.com/taskSubmissions" - allows admin to get details about task submissions

@@ -24,9 +24,10 @@ function AdminPrivate({ match }) {
   const postTask = async (e) => {
     e.preventDefault();
 
-    const localUrl = "http://localhost:3001/tasks";
+    //const localUrl = "http://localhost:3001/tasks";
+    const deployedUrl = "https://student-task1.herokuapp.com/tasks";
 
-    const response = await fetch(localUrl, {
+    const response = await fetch(deployedUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,7 +50,8 @@ function AdminPrivate({ match }) {
   useEffect(() => {
     const getTasks = async () => {
       try {
-        const response = await fetch("http://localhost:3001/tasks", {
+        const deployedUrl = "https://student-task1.herokuapp.com/tasks";
+        const response = await fetch(deployedUrl, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

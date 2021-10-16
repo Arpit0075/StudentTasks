@@ -22,9 +22,11 @@ function AdminLogin() {
     e.preventDefault();
 
     try {
-      const localUrl = "http://localhost:3001/adminLogin";
+      //const localUrl = "http://localhost:3001/adminLogin";
 
-      const response = await fetch(localUrl, {
+      const deployedUrl = "https://student-task1.herokuapp.com/adminLogin";
+
+      const response = await fetch(deployedUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

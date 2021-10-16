@@ -19,10 +19,10 @@ function TaskSubmissions({ match }) {
   useEffect(() => {
     const getStudents = async () => {
       try {
-        const localUrl = "http://localhost:3001/students";
-        //const deployedUrl = "https://urlshortner-react.herokuapp.com/private";
+        //const localUrl = "http://localhost:3001/students";
+        const deployedUrl = "https://student-task1.herokuapp.com/students";
 
-        const res = await fetch(localUrl, {
+        const res = await fetch(deployedUrl, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -44,10 +44,11 @@ function TaskSubmissions({ match }) {
   useEffect(() => {
     const getSolutions = async () => {
       try {
-        const localUrl = "http://localhost:3001/taskSubmissions";
-        //const deployedUrl = "https://urlshortner-react.herokuapp.com/private";
+        //const localUrl = "http://localhost:3001/taskSubmissions";
+        const deployedUrl =
+          "https://student-task1.herokuapp.com/taskSubmissions";
 
-        const res = await fetch(localUrl, {
+        const res = await fetch(deployedUrl, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -85,10 +86,10 @@ function TaskSubmissions({ match }) {
     //console.log(result[0].grade);
 
     try {
-      const localUrl = `http://localhost:3001/taskSubmissions/${id}`;
-      //const deployedUrl = "https://urlshortner-react.herokuapp.com/private";
+      //const localUrl = `http://localhost:3001/taskSubmissions/${id}`;
+      const deployedUrl = `https://student-task1.herokuapp.com/taskSubmissions/${id}`;
 
-      const res = await fetch(localUrl, {
+      const res = await fetch(deployedUrl, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

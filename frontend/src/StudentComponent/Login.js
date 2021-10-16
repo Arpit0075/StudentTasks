@@ -23,9 +23,9 @@ function Login() {
   const hanldeSubmit = async (e) => {
     e.preventDefault();
     try {
-      const localUrl = "http://localhost:3001/login";
+      const deployedUrl = "https://student-task1.herokuapp.com/login";
 
-      const response = await fetch(localUrl, {
+      const response = await fetch(deployedUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

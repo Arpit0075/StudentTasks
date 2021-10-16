@@ -19,9 +19,9 @@ function Register() {
   const hanldeSubmit = async (e) => {
     e.preventDefault();
 
-    const localUrl = "http://localhost:3001/register";
+    const deployedUrl = "https://student-task1.herokuapp.com/register";
 
-    const response = await fetch(localUrl, {
+    const response = await fetch(deployedUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

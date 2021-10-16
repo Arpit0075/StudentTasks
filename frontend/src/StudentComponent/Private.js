@@ -7,7 +7,7 @@ function Private({ match }) {
   //state for handling data coming from backend
   const [tasks, setTasks] = useState([]);
 
-  //state to display the partiicular day wise selected task
+  //state to display the partiicular day wise selected task by logged in student
   const [selectedTask, setSelectedTask] = useState({});
 
   //state to manage solution link and send it to backend
@@ -19,14 +19,14 @@ function Private({ match }) {
   //state for dispalying task solutions reveived from backend
   const [solutions, setSolutions] = useState([]);
 
-  //get req to private route tasks
+  //get req to tasks
   useEffect(() => {
     const getData = async () => {
       try {
-        const localUrl = "http://localhost:3001/tasks";
-        //const deployedUrl = "https://urlshortner-react.herokuapp.com/private";
+        //const localUrl = "http://localhost:3001/tasks";
+        const deployedUrl = "https://student-task1.herokuapp.com/tasks";
 
-        const res = await fetch(localUrl, {
+        const res = await fetch(deployedUrl, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -54,12 +54,12 @@ function Private({ match }) {
     setSelectedTask(...array);
   };
 
-  //function to submit solution to backend post req
+  //function to submit solution to backend post req to taskSubmissions collection
   const submitSolution = async () => {
-    const localUrl = "http://localhost:3001/taskSubmissions";
-    //const deployedUrl = "https://urlshortner-react.herokuapp.com/private";
+    //const localUrl = "http://localhost:3001/taskSubmissions";
+    const deployedUrl = "https://student-task1.herokuapp.com/taskSubmissions";
 
-    const res = await fetch(localUrl, {
+    const res = await fetch(deployedUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -96,14 +96,15 @@ function Private({ match }) {
     }
   };
 
-  //get req to get task solutions
+  //get req to get task submissions by particular student
   useEffect(() => {
     const getSolutions = async () => {
       try {
-        const localUrl = "http://localhost:3001/taskSubmissions";
-        //const deployedUrl = "https://urlshortner-react.herokuapp.com/private";
+        //const localUrl = "http://localhost:3001/taskSubmissions";
+        const deployedUrl =
+          "https://student-task1.herokuapp.com/taskSubmissions";
 
-        const res = await fetch(localUrl, {
+        const res = await fetch(deployedUrl, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
