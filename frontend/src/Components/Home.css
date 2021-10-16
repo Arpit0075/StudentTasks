@@ -1,0 +1,15 @@
+.container-home {
+  display: flex;
+  background: url("../img/candle.jpg");
+  background-blend-mode: darken;
+}
+
+.img {
+  object-fit: contain;
+  width: 100%;
+}
+
+.container-home-left {
+  max-width: 600px;
+  margin: auto;
+}

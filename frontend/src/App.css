@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+.form-control {
+  width: 50%;
+  margin: auto;
+}
+form {
+  margin-top: 2rem;
+}
+.login-info {
+  color: wheat;
+}
