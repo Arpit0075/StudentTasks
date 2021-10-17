@@ -1,5 +1,13 @@
 This is the backend API for registering user, login and then resetting password for the user, displaying data stored in database about urlShortner
 
+Admin login details:
+email: admin@gmail.com
+password: admin
+
+sample student login
+email: kayn@gmail.com  
+password: 123
+
 These are the end points-
 
 get "https://student-task1.herokuapp.com/" - gives welcome message
