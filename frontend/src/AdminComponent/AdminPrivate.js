@@ -130,7 +130,9 @@ function AdminPrivate({ match }) {
       <button onClick={postTask}>Post Task</button>
       {/* displaying tasks from backend */}
       <h3 className="my-3">Tasks</h3>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <div
+        style={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}
+      >
         {tasks.map((task) => {
           return (
             <div
