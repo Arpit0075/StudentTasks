@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import { Token } from "../Context/AuthContext";
 
 function Private({ match }) {
+  // eslint-disable-next-line
+  const [auth, setAuth] = useContext(Token);
+
   let history = useHistory();
 
   //state for handling data coming from backend
@@ -217,6 +221,7 @@ function Private({ match }) {
         className="btn btn-info my-3"
         onClick={() => {
           localStorage.removeItem("authToken");
+          setAuth(false);
           history.push("/");
         }}
       >

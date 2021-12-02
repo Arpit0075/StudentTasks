@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import { Token } from "../Context/AuthContext";
 
 function AdminLogin() {
   let history = useHistory();
+
+  // eslint-disable-next-line
+  const [auth, setAuth] = useContext(Token);
 
   const [adminLogin, setAdminLogin] = useState({
     email: "",
@@ -48,6 +52,7 @@ function AdminLogin() {
       //if we get authToken in response then we store it in local storage and redirect user to private route
       if (data.authToken) {
         localStorage.setItem("authToken", data.authToken);
+        setAuth(true);
         history.push(`/admin/${data.adminId}`);
       }
     } catch (err) {

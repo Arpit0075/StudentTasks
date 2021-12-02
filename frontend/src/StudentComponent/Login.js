@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { Token } from "../Context/AuthContext";
 
 function Login() {
+  // eslint-disable-next-line
+  const [auth, setAuth] = useContext(Token);
+
   const history = useHistory();
 
   const [userLogin, setuserLogin] = useState({
@@ -43,9 +47,11 @@ function Login() {
         setError("");
       }, 3000);
 
+      //console.log(data);
       //if we get authToken in response then we store it in local storage and redirect user to private route
       if (data.authToken) {
         localStorage.setItem("authToken", data.authToken);
+        setAuth(true);
         history.push(`/login/${data.studentId}`);
       }
     } catch (err) {

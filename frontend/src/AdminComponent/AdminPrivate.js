@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useHistory, Link } from "react-router-dom";
+import { Token } from "../Context/AuthContext";
 
 function AdminPrivate({ match }) {
+  // eslint-disable-next-line
+  const [auth, setAuth] = useContext(Token);
+
   //state for setting inputs for the task to be sent to backend
   const [task, setTask] = useState({
     activity: "",
@@ -156,6 +160,7 @@ function AdminPrivate({ match }) {
       <button
         onClick={() => {
           localStorage.removeItem("authToken");
+          setAuth(false);
           history.push("/admin");
         }}
       >
