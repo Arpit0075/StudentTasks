@@ -39,6 +39,7 @@ function Private({ match }) {
         });
         const data = await res.json();
         setTasks(data);
+        setSelectedTask(data[0]);
       } catch (err) {
         console.log(err);
       }
@@ -136,6 +137,18 @@ function Private({ match }) {
     <div>
       <h1>Day wise tasks</h1>
       <p>Please select a day to view the task </p>
+
+      {/* logout button */}
+      <button
+        className="btn btn-info my-3 logoutBtn"
+        onClick={() => {
+          localStorage.removeItem("authToken");
+          setAuth(false);
+          history.push("/");
+        }}
+      >
+        Logout
+      </button>
       <div
         className="mx-5 my-5"
         style={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}
@@ -172,7 +185,10 @@ function Private({ match }) {
         <ul className="list-group list-group-flush">
           <li className="list-group-item">Date: {selectedTask.date}</li>
           <li className="list-group-item">
-            Reference: {selectedTask.reference}
+            Reference:{" "}
+            <a href={selectedTask.reference} target="_blank" rel="noreferrer">
+              {selectedTask.reference}
+            </a>
           </li>
           <input
             className="mx-2 my-2"
@@ -215,18 +231,6 @@ function Private({ match }) {
           );
         })}
       </div>
-
-      {/* logout button */}
-      <button
-        className="btn btn-info my-3"
-        onClick={() => {
-          localStorage.removeItem("authToken");
-          setAuth(false);
-          history.push("/");
-        }}
-      >
-        Logout
-      </button>
     </div>
   );
 }

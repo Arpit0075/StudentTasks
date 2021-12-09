@@ -11,3 +11,9 @@ form {
 .login-info {
   color: wheat;
 }
+
+.logoutBtn {
+  position: absolute;
+  top: 7%;
+  right: 2%;
+}

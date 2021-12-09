@@ -91,6 +91,18 @@ function AdminPrivate({ match }) {
         </Link>
       </div>
 
+      {/* logout button */}
+      <button
+        className="btn btn-info my-3 logoutBtn"
+        onClick={() => {
+          localStorage.removeItem("authToken");
+          setAuth(false);
+          history.push("/");
+        }}
+      >
+        Logout
+      </button>
+
       {/* ui to post to */}
       <div className="row mb-3">
         <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">
@@ -150,22 +162,17 @@ function AdminPrivate({ match }) {
                 <p className="card-text">Task: {task.activity}</p>
               </div>
               <ul className="list-group list-group-flush">
-                <li className="list-group-item">Reference: {task.reference}</li>
+                <li className="list-group-item">
+                  Reference:{" "}
+                  <a href={task.reference} target="_blank" rel="noreferrer">
+                    {task.reference}
+                  </a>
+                </li>
               </ul>
             </div>
           );
         })}
       </div>
-      {/* logout button */}
-      <button
-        onClick={() => {
-          localStorage.removeItem("authToken");
-          setAuth(false);
-          history.push("/admin");
-        }}
-      >
-        Logout
-      </button>
     </div>
   );
 }
