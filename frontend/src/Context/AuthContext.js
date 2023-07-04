@@ -7,7 +7,6 @@ export const AuthContext = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");
-    //console.log(token);
     if (token) {
       setAuth(true);
     } else {

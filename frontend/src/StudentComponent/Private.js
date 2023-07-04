@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Token } from "../Context/AuthContext";
+import { BASE_URL } from "../url";
 
 function Private({ match }) {
   // eslint-disable-next-line
@@ -27,8 +28,7 @@ function Private({ match }) {
   useEffect(() => {
     const getData = async () => {
       try {
-        //const localUrl = "http://localhost:3001/tasks";
-        const deployedUrl = "https://student-task1.herokuapp.com/tasks";
+        let deployedUrl = BASE_URL + "tasks";
 
         const res = await fetch(deployedUrl, {
           method: "GET",
@@ -55,14 +55,13 @@ function Private({ match }) {
     array = array.filter((el) => {
       return el._id === id;
     });
-    //console.log(...array);
+
     setSelectedTask(...array);
   };
 
   //function to submit solution to backend post req to taskSubmissions collection
   const submitSolution = async () => {
-    //const localUrl = "http://localhost:3001/taskSubmissions";
-    const deployedUrl = "https://student-task1.herokuapp.com/taskSubmissions";
+    let deployedUrl = BASE_URL + "taskSubmissions";
 
     const res = await fetch(deployedUrl, {
       method: "POST",
@@ -73,9 +72,6 @@ function Private({ match }) {
       body: JSON.stringify({ selectedTask, solution, day: selectedTask.day }),
     });
     const data = await res.json();
-
-    //console.log(data.updatedSolution.value);
-    //console.log(data.newSolution);
 
     setMessage(data.message);
     setSolution("");
@@ -105,10 +101,7 @@ function Private({ match }) {
   useEffect(() => {
     const getSolutions = async () => {
       try {
-        //const localUrl = "http://localhost:3001/taskSubmissions";
-        const deployedUrl =
-          "https://student-task1.herokuapp.com/taskSubmissions";
-
+        let deployedUrl = BASE_URL + "taskSubmissions";
         const res = await fetch(deployedUrl, {
           method: "GET",
           headers: {
@@ -117,13 +110,12 @@ function Private({ match }) {
           },
         });
         const data = await res.json();
-        //console.log(data);
 
         let array = [...data];
         array = array.filter((el) => {
           return el.submittedById === match.params.id;
         });
-        //console.log(array);
+
         setSolutions(array);
       } catch (err) {
         console.log(err);

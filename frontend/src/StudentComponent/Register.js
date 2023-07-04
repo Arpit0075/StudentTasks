@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { BASE_URL } from "../url";
 
 function Register() {
   const [userRegister, setuserRegister] = useState({
@@ -19,7 +20,7 @@ function Register() {
   const hanldeSubmit = async (e) => {
     e.preventDefault();
 
-    const deployedUrl = "https://student-task1.herokuapp.com/register";
+    let deployedUrl = BASE_URL + "register";
 
     const response = await fetch(deployedUrl, {
       method: "POST",

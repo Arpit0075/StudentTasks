@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { Token } from "../Context/AuthContext";
+import { BASE_URL } from "../url";
 
 function AdminPrivate({ match }) {
   // eslint-disable-next-line
@@ -28,8 +29,7 @@ function AdminPrivate({ match }) {
   const postTask = async (e) => {
     e.preventDefault();
 
-    //const localUrl = "http://localhost:3001/tasks";
-    const deployedUrl = "https://student-task1.herokuapp.com/tasks";
+    let deployedUrl = BASE_URL + "tasks";
 
     const response = await fetch(deployedUrl, {
       method: "POST",
@@ -54,7 +54,7 @@ function AdminPrivate({ match }) {
   useEffect(() => {
     const getTasks = async () => {
       try {
-        const deployedUrl = "https://student-task1.herokuapp.com/tasks";
+        let deployedUrl = BASE_URL + "tasks";
         const response = await fetch(deployedUrl, {
           method: "GET",
           headers: {

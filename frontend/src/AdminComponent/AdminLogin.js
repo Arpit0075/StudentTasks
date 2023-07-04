@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Token } from "../Context/AuthContext";
+import { BASE_URL } from "../url";
 
 function AdminLogin() {
   let history = useHistory();
@@ -26,9 +27,7 @@ function AdminLogin() {
     e.preventDefault();
 
     try {
-      //const localUrl = "http://localhost:3001/adminLogin";
-
-      const deployedUrl = "https://student-task1.herokuapp.com/adminLogin";
+      let deployedUrl = BASE_URL + "adminLogin";
 
       const response = await fetch(deployedUrl, {
         method: "POST",
@@ -40,8 +39,6 @@ function AdminLogin() {
 
       const data = await response.json();
 
-      // now do whatever you want with the data
-      //console.log(data);
       //displaying error for 3 secs
       setError(data.err);
       setTimeout(() => {

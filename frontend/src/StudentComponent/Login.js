@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { Token } from "../Context/AuthContext";
+import { BASE_URL } from "../url";
 
 function Login() {
   // eslint-disable-next-line
@@ -27,7 +28,7 @@ function Login() {
   const hanldeSubmit = async (e) => {
     e.preventDefault();
     try {
-      const deployedUrl = "https://student-task1.herokuapp.com/login";
+      let deployedUrl = BASE_URL + "login";
 
       const response = await fetch(deployedUrl, {
         method: "POST",

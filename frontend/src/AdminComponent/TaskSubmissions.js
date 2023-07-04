@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../url";
 
 function TaskSubmissions({ match }) {
   //state for storing task solutions reveived from backend
@@ -19,8 +20,7 @@ function TaskSubmissions({ match }) {
   useEffect(() => {
     const getStudents = async () => {
       try {
-        //const localUrl = "http://localhost:3001/students";
-        const deployedUrl = "https://student-task1.herokuapp.com/students";
+        let deployedUrl = BASE_URL + "students";
 
         const res = await fetch(deployedUrl, {
           method: "GET",
@@ -30,7 +30,6 @@ function TaskSubmissions({ match }) {
           },
         });
         const data = await res.json();
-        //console.log(data);
         setStudents(data);
       } catch (err) {
         console.log(err);
@@ -44,9 +43,7 @@ function TaskSubmissions({ match }) {
   useEffect(() => {
     const getSolutions = async () => {
       try {
-        //const localUrl = "http://localhost:3001/taskSubmissions";
-        const deployedUrl =
-          "https://student-task1.herokuapp.com/taskSubmissions";
+        let deployedUrl = BASE_URL + "taskSubmissions";
 
         const res = await fetch(deployedUrl, {
           method: "GET",
@@ -83,11 +80,9 @@ function TaskSubmissions({ match }) {
     let result = selectedStudent.filter((el) => {
       return el._id === id;
     });
-    //console.log(result[0].grade);
 
     try {
-      //const localUrl = `http://localhost:3001/taskSubmissions/${id}`;
-      const deployedUrl = `https://student-task1.herokuapp.com/taskSubmissions/${id}`;
+      let deployedUrl = BASE_URL + `taskSubmissions/${id}`;
 
       const res = await fetch(deployedUrl, {
         method: "PUT",

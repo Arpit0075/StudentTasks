@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BASE_URL } from "../url";
 
 function ForgotPass() {
   const [email, setEmail] = useState("");
@@ -31,9 +32,7 @@ function ForgotPass() {
   const handleSubmit1 = async (e) => {
     e.preventDefault();
 
-    //const localUrl = "http://localhost:3001/forgotPass";
-
-    const deployedUrl = "https://student-task1.herokuapp.com/forgotPass";
+    let deployedUrl = BASE_URL + "forgotPass";
 
     const response = await fetch(deployedUrl, {
       method: "POST",
@@ -44,9 +43,6 @@ function ForgotPass() {
     });
 
     const data = await response.json();
-
-    // now do whatever you want with the data
-    //console.log(data);
 
     if (data.error) {
       setDiv((prev) => ({ ...prev, err: true, form: false }));
@@ -63,10 +59,9 @@ function ForgotPass() {
 
   //function to reset the password put request
   const resetPassword = async (e) => {
-    //console.log(res);
     e.preventDefault();
 
-    const deployedUrl = "https://student-task1.herokuapp.com/resetPass";
+    let deployedUrl = BASE_URL + "resetPass";
 
     const response = await fetch(deployedUrl, {
       method: "PUT",
@@ -78,9 +73,6 @@ function ForgotPass() {
     });
 
     const data = await response.json();
-
-    // now do whatever you want with the data
-    //console.log(data);
 
     setDiv((prev) => ({ ...prev, form: false, err: false }));
     setEmail("");
