@@ -5,6 +5,3 @@ Deployed links:
 
 Here is the deployed link for frontend:
 https://student-task1.netlify.app/
-
-backend deployed link:
-https://student-task1.herokuapp.com/
